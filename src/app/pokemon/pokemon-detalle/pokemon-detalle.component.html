@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <p class="h3 p-3">{{ pokemonDetailDto.name }}</p>
+  <div class="row">
+    <div class="col-2">
+      <div class="thumb">
+        <img
+          class="img-fluid"
+          src="{{ pokemonDetailDto.sprites.front_default }}"
+          alt="{{ pokemonDetailDto.name }}"
+        >
+      </div>
+    </div>
+    <div class="col">
+      <dl>
+        <hr/>
+        <dt>Nombre</dt>
+        <dd>{{ pokemonDetailDto.name }}</dd>
+        <hr/>
+        <dt>Habilidades</dt>
+        <dd>{{ pokemonDetailDto.abilities }}</dd>
+        <hr/>
+        <dt>Peso</dt>
+        <dd>{{ pokemonDetailDto.height }}</dd>
+        <hr/>
+        <dt>Tipos</dt>
+          <dd class="caption" *ngFor="let type of pokemonDetailDto.types">
+          </dd>
+        <hr/>
+      </dl>
+    </div>
+  </div>
+</div>

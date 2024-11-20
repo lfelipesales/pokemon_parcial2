@@ -1,0 +1,21 @@
+<div *ngIf="selected">
+  <app-pokemon-detalle [pokemonDetailDto]="selectedPokemon"></app-pokemon-detalle>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <h2>Pokemons</h2>
+    <div class="col mb-2" *ngFor="let pokemon of pokemons">
+      <div class="card p-2" style="width: 15rem; height: 20rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ pokemon.name }}</h5>
+        </div>
+        <img
+          class="card-img-top"
+          src="{{ pokemon.sprites.front_default }}"
+          alt="{{ pokemon.name }}"
+          style="cursor: pointer"
+        />
+      </div>
+    </div>
+  </div>
+</div>
