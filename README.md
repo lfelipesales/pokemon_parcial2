@@ -1,3 +1,5 @@
+# Parcial#2
+
 Se debe desarrollar una aplicación angular que permita visualizar Pokémons y sus detalles. 
 
 
