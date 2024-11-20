@@ -1,14 +1,20 @@
 import { TypesDto } from "../type/typeDto";
-import { PokemonDTO } from "./pokemonDTO";
 
-export class PokemonDetailDto extends PokemonDTO {
+export class PokemonDetailDto{
+    id: number;
+    height: number;
+    weight: number;
+    name: string;
     abilities : Array<AbilitiesDto>
     sprites : Array<SpriteDto>
     types: Array<TypesDto>
 
 
     constructor(id: number, height: number, weight: number, name: string, abilities: Array<AbilitiesDto>, sprites: Array<SpriteDto>, types: Array<TypesDto>) {
-        super(id, height, weight, name);
+        this.id = id;
+        this.height = height;
+        this.weight = weight;
+        this.name = name;
         this.abilities = abilities;
         this.sprites = sprites;
         this.types = types;

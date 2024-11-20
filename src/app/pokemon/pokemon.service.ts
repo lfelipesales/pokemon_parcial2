@@ -11,11 +11,18 @@ export class PokemonService {
 
   constructor(private http : HttpClient) { }
 
-  getPokemons(name: string) : Observable<PokemonDetailDto>[] {
-    let pokemons : Observable<PokemonDetailDto>[] = [];
+  getPokemons(): PokemonDetailDto[] {
+    let pokemons : PokemonDetailDto[] = [];
     for (let i = 1; i <= 20; i++) {
-      pokemons.push(this.http.get<PokemonDetailDto>(`${this.apiUrl}${i}`));
+      this.getPokemon(i.toString()).subscribe((pokemon) => {
+        pokemons.push(pokemon);
+      });
     }
     return pokemons;
   }
+
+  getPokemon(id : string): Observable<PokemonDetailDto> {
+    return this.http.get<PokemonDetailDto>(`${this.apiUrl}${id}`);
+  }
+
 }
