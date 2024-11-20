@@ -1,9 +1,11 @@
 export class TypesDto {
-  name : string;
+  type:{
+    name : string;
+    url : string;
+  }
 
-
-  constructor(name: string) {
-    this.name = name;
+  constructor(type: {name: string, url: string}) {
+    this.type = type;
   }
 }
 

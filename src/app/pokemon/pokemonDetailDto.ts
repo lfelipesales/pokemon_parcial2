@@ -5,12 +5,12 @@ export class PokemonDetailDto{
     height: number;
     weight: number;
     name: string;
-    abilities : Array<AbilitiesDto>
-    sprites : Array<SpriteDto>
+    abilities : Array<AbilityDto>
+    sprites : SpriteDto
     types: Array<TypesDto>
 
 
-    constructor(id: number, height: number, weight: number, name: string, abilities: Array<AbilitiesDto>, sprites: Array<SpriteDto>, types: Array<TypesDto>) {
+    constructor(id: number, height: number, weight: number, name: string, abilities: Array<AbilityDto>, sprites: SpriteDto, types: Array<TypesDto>) {
         this.id = id;
         this.height = height;
         this.weight = weight;
@@ -22,14 +22,25 @@ export class PokemonDetailDto{
 }
 
 
-export class AbilitiesDto {
-  name : string;
-
-  constructor(name: string) {
-    this.name = name;
+export class AbilityDto {
+  ability: AbilitiesDetailDto;
+  is_hidden: boolean;
+  slot: number;
+  constructor(ability: AbilitiesDetailDto, is_hidden: boolean, slot: number) {
+    this.ability = ability;
+    this.is_hidden = is_hidden;
+    this.slot = slot;
   }
 }
+export class AbilitiesDetailDto {
+  name : string;
+  url : string;
 
+  constructor(name: string, url: string ) {
+    this.name = name;
+    this.url = url;
+  }
+}
 
 export class SpriteDto {
   front_default : string;
