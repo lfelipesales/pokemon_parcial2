@@ -1,27 +1,36 @@
-# Pokemon
+Se debe desarrollar una aplicación angular que permita visualizar Pokémons y sus detalles. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.8.
 
-## Development server
+La información de los Pokémons la vamos a traer utilizando el siguiente api: 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://pokeapi.co/api/v2/pokemon
 
-## Code scaffolding
+Si bien un Pokémon tiene muchas propiedades, en este ejercicio solo vamos a tener en cuenta los siguientes atributos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+id: number;
+name: string;
+height: number;
+weight: number;
+abilities : Array<AbilitiesDto>
+sprites : Array<SpriteDto>
+types: Array<TypesDto>
 
-## Build
+Para traer un pokemon usando el api, debemos realizar el siguiente request:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+https://pokeapi.co/api/v2/pokemon/1 
 
-## Running unit tests
+En el código inicial existe un módulo “pokemon” que tiene la estructura anterior definida y el servicio que trae los primeros 20 pokémons.
+Adicionalmente tiene un módulo “type” que contiene la estructura de los tipos de pokémon. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Listar Pokemons (30%) 
+Ud. debe crear un componente que liste los pokemons utilizando el componente “card” de bootstrap y desplegando la imagen que se encuentra en el primer elemento del  arreglo “sprites” y que se llama “front_default”.
 
-## Running end-to-end tests
+Detalle del Pokémon (20%)
+Ud. debe crear un componente que muestre el detalle del pokémon seleccionado por el usuario. Con toda la información en el pokémon. 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Vista de Tipo (20%):
+En el componente de detalle anterior, cree una ruta sobre cada uno de los tipos del pokémon de tal forma que cuando el usuario seleccione un tipo, muestre una nueva vista con una lista de los nombres de los pokémons que contienen el valor del tipo seleccionado. 
 
-## Further help
+Conteo de Pokémon por Tipo en el Listado (30%):
+Implementar una función en la vista principal que muestre, en la parte de abajo de los pokémons,  la cantidad de pokémons de cada tipo presentes en el listado. La cantidad debe aparecer en un lugar visible, permitiendo al usuario conocer el número de pokémons de cada tipo que se encuentran actualmente en pantalla.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
